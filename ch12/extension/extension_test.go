@@ -27,17 +27,17 @@ func (d *Dog) speak() {
 }
 
 /*只有完全重写了Pet的SpeakTo()才能调用到Dog的speak()*/
-func (d *Dog) speakTo(host string) {
-	d.speak()
-	fmt.Println(host)
-}
+// func (d *Dog) speakTo(host string) {
+// 	d.speak()
+// 	fmt.Println(host)
+// }
 
 func TestExtension(t *testing.T) {
 	// p := new(Pet)
-	// p.speakTo("chao")
+	// p.speakTo("host")
 
 	d := new(Dog)
 	// 未重写speakTo ... host
 	// 重写speakTo wang host
-	d.speakTo("k")
+	d.speakTo("host")
 }

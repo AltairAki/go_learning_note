@@ -8,7 +8,7 @@ Thread vs. Groutine
  - Java Thread 是 1:1  
  - Groutine 是 M:N
 
- ![image](https://images2018.cnblogs.com/blog/1075473/201807/1075473-20180704162532330-809705926.jpg)
+ ![image](http://altairaki.cn/wp-content/uploads/2020/08/%E5%8D%8F%E7%A8%8B%E6%9C%BA%E5%88%B6.jpg)
 
 M - System Thread M代表内核级线程，一个M就是一个线程，goroutine就是跑在M之上的；M是一个很大的结构，里面维护小对象内存cache（mcache）、当前执行的goroutine、随机数发生器等等非常多的信息
 P - Processor Golang实现的协程处理器，主要用途就是用来执行goroutine的，所以它也维护了一个goroutine队列，里面存储了所有需要它来执行的goroutine

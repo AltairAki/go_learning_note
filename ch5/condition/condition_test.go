@@ -1,6 +1,7 @@
 package condition
 
 import (
+	"fmt"
 	"runtime"
 	"testing"
 )
@@ -9,6 +10,10 @@ func TestIfMultiSec(t *testing.T) {
 	if a := 1 == 1; a {
 		t.Log("1=1")
 	}
+
+	// if的条件判断语句允许声明一个变量，但是这个变量的作用域只能在该条件逻辑内。
+	// t.Log(a)
+
 	// if result, err := someFunc(); err == nil {
 	// 	t.Log("have not err")
 	// } else {
@@ -50,5 +55,28 @@ func TestSwitchConditionCase(t *testing.T) {
 		default:
 			t.Log("unknow")
 		}
+	}
+}
+
+/*
+	Go语言里面switch默认相当于每个case最后带有break,匹配成功后不会自动向下执行其他case,而是跳出整个switch,但是可以使用 fallthrough强制执行后面的case代码
+*/
+func TestFallThrought(t *testing.T) {
+	i := 6
+	switch i {
+	case 4:
+		fmt.Println("the integer was <= 4")
+		fallthrough
+	case 5:
+		fmt.Println("the integer was <= 5")
+		fallthrough
+	case 6:
+		fmt.Println("the integer was <= 6")
+		fallthrough
+	case 7:
+		fmt.Println("the integer was <= 7")
+		fallthrough
+	default:
+		fmt.Println("default case")
 	}
 }

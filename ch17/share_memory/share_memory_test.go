@@ -36,7 +36,7 @@ func TestCounterGroutineSafe(t *testing.T) {
 			counter++
 		}()
 	}
-	time.Sleep(time.Second * 1)
+	time.Sleep(time.Second * 1)     //1秒后所有协程运行完毕
 	t.Logf("counter = %d", counter) // counter = 5000
 }
 

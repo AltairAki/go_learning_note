@@ -1,5 +1,10 @@
 package array
 
+/*
+	array就是数组，定义方式如下：
+	var arr [n]type
+	由于长度也是数组类型的一部分，因此[3]int与[4]int
+*/
 import "testing"
 
 func TestArrayInit(t *testing.T) {
@@ -10,12 +15,15 @@ func TestArrayInit(t *testing.T) {
 
 	b := [3]int{1, 2, 3}
 	t.Log(b)
+	bb := [10]int{1, 2, 3} //声明了一个长度为10的int数组，其中前三个元素初始化为1,2,3其他默认为0
+	t.Log(bb)
 
+	d := [...]int{1, 3, 4, 5, 7, 7} //可以忽略长度采用 `...`的方式，Go语言会自动根据元素的个数来计算长度
+	t.Log(d)
+
+	// 多维数组
 	c := [2][3]int{{1, 2, 3}, {2, 3, 4}}
 	t.Log(c) // [[1 2 3] [2 3 4]]
-
-	d := [...]int{1, 3, 4, 5, 7, 7}
-	t.Log(d)
 }
 
 func TestArrayTravel(t *testing.T) {

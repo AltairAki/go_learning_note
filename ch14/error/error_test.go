@@ -74,6 +74,6 @@ func PrintFib2(str string) {
 }
 
 func TestGetFib(t *testing.T) {
-	PrintFib1("1")
+	PrintFib1("a")
 	PrintFib2("10")
 }
