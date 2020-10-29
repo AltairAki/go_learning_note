@@ -26,5 +26,5 @@ func SlowFn(op int) int {
 
 func TestSpendTime(t *testing.T) {
 	sFn := timeSpent(SlowFn)
-	t.Log(sFn(11))
+	t.Log(sFn(5))
 }

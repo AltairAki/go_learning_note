@@ -55,6 +55,6 @@ func TestCounterWaitGroup(t *testing.T) {
 			wg.Done() //完成协程任务，主动告诉WaitGroup结束
 		}()
 	}
-	wg.Wait()                       //等每个WaitGroup都 done 才不会继续阻塞
+	wg.Wait()                       // 等每个WaitGroup都 done 才不会继续阻塞
 	t.Logf("counter = %d", counter) // counter = 5000
 }
