@@ -47,7 +47,7 @@ func TestCounterWaitGroup(t *testing.T) {
 	for i := 0; i < 5000; i++ {
 		wg.Add(1) // 每启一个协程WaitGroup就+1
 		go func() {
-			defer func() {
+			defer func() { // 加锁的时候一般都要配合 defer 来释放锁
 				mut.Unlock()
 			}()
 			mut.Lock()
