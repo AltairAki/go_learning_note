@@ -6,5 +6,4 @@ func createRequest() string {
 		payload[i] = i
 	}
 	req := Request{"demo_transaction", payload}
-	v,
 }
