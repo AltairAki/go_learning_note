@@ -27,11 +27,9 @@
 - ch25···················································reflect反射编程
 - ch26···················································unsafe不安全编程
 - ch27···················································PipeFilter
-
-
-报错：can't load package: package learn/src/ch24/unit_test is not in GOROOT (c:\go\src\learn\src\ch24\unit_test)
-
-将 go.mod中的 module learn 改为 `learn/src`
+- ch28···················································MicroKernel
+- ch29···················································JSON
+- ch30···················································HTTP服务
 
 
 Go modules使用步骤：
@@ -53,5 +51,12 @@ export GOPRIVATE=*.corp.example.com,rsc.io/private
 5. 执行go mod tidy命令，它会添加缺失的模块以及移除不需要的模块。执行后会生成go.sum文件(模块下载条目)。添加参数-v，例如go mod tidy -v可以将执行的信息，即删除和添加的包打印到命令行；
 6. 执行命令go mod verify来检查当前模块的依赖是否全部下载下来，是否下载下来被修改过。如果所有的模块都没有被修改过，那么执行这条命令之后，会打印all modules verified。
 7. 执行命令go mod vendor生成vendor文件夹，该文件夹下将会放置你go.mod文件描述的依赖包，文件夹下同时还有一个文件modules.txt，它是你整个工程的所有模块。在执行这条命令之前，如果你工程之前有vendor目录，应该先进行删除。同理go mod vendor -v会将添加到vendor中的模块打印出来；
+
+可能遇到的报错：
+
+报错：can't load package: package learn/src/ch24/unit_test is not in GOROOT (c:\go\src\learn\src\ch24\unit_test)
+
+将 go.mod中的 module learn 改为 `learn/src`
+
 
 
