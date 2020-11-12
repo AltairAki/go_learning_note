@@ -14,7 +14,7 @@ func (m *ConcurrentMapBenckmarkAdapter) Set(key interface{}, val interface{}) {
 	m.m.Set(concurrent_map.StrKey(key.(string)), val)
 }
 
-func (m *ConcurrentMapBenckmarkAdapter) Del(key interface{}) {
+func (m *ConcurrentMapBenckmarkAdapter) Remove(key interface{}) {
 	m.m.Del(concurrent_map.StrKey(key.(string)))
 }
 

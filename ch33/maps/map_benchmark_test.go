@@ -4,17 +4,19 @@ import (
 	"strconv"
 	"sync"
 	"testing"
+
+	cmap "github.com/streamrail/concurrent-map"
 )
 
 const (
-	NumOfReader = 100
-	NumOfWrite  = 10
+	NumOfReader = 10
+	NumOfWrite  = 100
 )
 
 type Map interface {
-	Set(key interface{}, val interface{})
-	Get(key interface{}) (interface{}, bool)
-	Del(key interface{})
+	Set(key string, value interface{})
+	Get(key string) (interface{}, bool)
+	Remove(key string)
 }
 
 func benchmarkMap(b *testing.B, hm Map) {
@@ -26,7 +28,7 @@ func benchmarkMap(b *testing.B, hm Map) {
 				for i := 0; i < NumOfWrite; i++ {
 					hm.Set(strconv.Itoa(i), i*i)
 					hm.Set(strconv.Itoa(i), i*i)
-					hm.Del(strconv.Itoa(i))
+					hm.Remove(strconv.Itoa(i))
 				}
 				wg.Done()
 			}()
@@ -56,7 +58,7 @@ func BenchmarkSyncMap(b *testing.B) {
 	})
 
 	b.Run("map with ConcurrentMap", func(b *testing.B) {
-		hm := CreateConcurrentMapBenckmarkAdapter(199)
-		benchmarkMap(b, hm)
+		hm := cmap.New()
+		benchmarkMap(b, &hm)
 	})
 }
